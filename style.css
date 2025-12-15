@@ -425,6 +425,93 @@ section {
     font-size: 1.3rem;
 }
 
+/* Certification Section */
+.certificate-section{
+    background-color: var(--dark-card-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+.certificate-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.certificate-card{
+    background-color: var(--dark-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.certificate-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 123, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.certificate-card:hover::before {
+    opacity: 1;
+}
+
+.certificate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.5); /* Enhanced shadow on hover */
+}
+
+.certificate-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.certificate-card p {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.certificate-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2; /* Ensure links are above pseudo-element */
+}
+
+.certificate-links .icon-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.certificate-links .icon-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.certificate-links .icon-link i {
+    font-size: 1.3rem;
+}
 
 /* Testimonials Section */
 .testimonials-section {
@@ -717,4 +804,5 @@ section {
         padding: 10px 5px;
         font-size: 1.2rem;
     }
+
 }
